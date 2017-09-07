@@ -94,7 +94,7 @@ class TimeConverter {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var lat = position.coords.latitude;
 			var lng = position.coords.longitude;
-			return fetch('https://cors-anywhere.herokuapp.com/http://api.timezonedb.com/v2/get-time-zone?key=AYFND6YNSLQO&format=json&by=position&lat=' + lat + '&lng=' + lng).then(function (req) {
+			return fetch('https://cors-anywhere.herokuapp.com/https://api.timezonedb.com/v2/get-time-zone?key=AYFND6YNSLQO&format=json&by=position&lat=' + lat + '&lng=' + lng).then(function (req) {
 				return req.json();
 			}).then(function (data) {
 				var timezoneName = data.zoneName.split('/').pop() + ', ' + data.countryName;

@@ -162,7 +162,7 @@ class ShowSearchScreen {
 
 	getTimezones() {
 
-		return fetch('http://api.timezonedb.com/v2/list-time-zone?key=AYFND6YNSLQO&format=json').then(function (req) {
+		return fetch('https://cors-anywhere.herokuapp.com/https://api.timezonedb.com/v2/list-time-zone?key=AYFND6YNSLQO&format=json').then(function (req) {
 			return req.json();
 		}).then(function (data) {
 
