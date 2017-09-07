@@ -71,7 +71,8 @@ class TimeConverter {
 			document.getElementsByClassName('js-output-data')[0].innerHTML = '00-00-00 00:00';
 		}
 
-		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
+		var inputDiv = document.getElementsByClassName('js-input-data')[0];
+		if (inputDiv.value.length > 14) {
 			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
 		}
 		
@@ -96,7 +97,6 @@ class TimeConverter {
 			return fetch('https://cors-anywhere.herokuapp.com/http://api.timezonedb.com/v2/get-time-zone?key=AYFND6YNSLQO&format=json&by=position&lat=' + lat + '&lng=' + lng).then(function (req) {
 				return req.json();
 			}).then(function (data) {
-				//console.log(data);
 				var timezoneName = data.zoneName.split('/').pop() + ', ' + data.countryName;
 				var timezoneCurrentTime = data.formatted.substring(8, 10) + '-' + data.formatted.substring(5, 7) + '-' + data.formatted.substring(2, 4) + ' ' + data.formatted.substring(11, 16);
 				var code = data.zoneName;
@@ -211,7 +211,7 @@ class TimeConverter {
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
 
-		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
+		if (inputDiv.value.length > 14) {
 			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
 		}
 
@@ -230,14 +230,13 @@ class TimeConverter {
 
 
 	clickRightRuler() {
-
-		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
-			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
-		}
-
 		var inputDiv = document.getElementsByClassName('js-input-data')[0];
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
+
+		if (inputDiv.value.length > 14) {
+			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
+		}
 
 		if (currentPos == 1 || currentPos == 4 || currentPos == 7 || currentPos == 10) {
 			currentPos += 2;
