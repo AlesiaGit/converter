@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Converter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="theme-color" content="white" />
+	<link rel='shortcut icon' type='image/x-icon' href='img/pwa/favicon.ico' />
+	<link rel="stylesheet" type="text/css" href="css/desktop.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-width:700px)" href="css/mobile.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (min-resolution:2dppx) and (min-width: 700px)" href="css/mobile.css" />
+	<link rel="manifest" href="manifest.json"></link>
+	<script type="text/javascript" src="libs/manup.js"></script>
+</head>
+<body>
+	<div class="widget">
+	<script type="text/javascript" src="libs/pwabuilder/pwabuilder-sw-register.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script>
+		var router = new Router({
+			routes: [{
+				name: 'index',
+				match: '',
+				onEnter: () => {
+					console.log('<index');
+					showMainScreen();
+					console.log('index>');
+				}
+			}, {
+				name: 'fuel',
+				match: 'fuel',
+				onEnter: () => new FuelConverter()
+			}, {
+				name: 'temp',
+				match: 'temp',
+				onEnter: () => new TempConverter()
+			}, {
+				name: 'speed',
+				match: 'speed',
+				onEnter: () => new SpeedConverter()
+			}, {
+				name: 'time',
+				match: 'time',
+				onEnter: () => new TimeConverter()
+			}, {
+				name: 'currency',
+				match: 'currency',
+				onEnter: () => new CurrencyConverter()
+			}]
+		});
+
+
+
+	</script>
+</body>
+</html>
