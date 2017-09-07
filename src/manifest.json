@@ -2,7 +2,7 @@
     "dir": "ltr",
     "lang": "en",
     "name": "Universal Converter PWA",
-    "scope": "converter/build/",
+    "scope": "/converter/build/index.html",
     "display": "standalone",
     "start_url": "https://alesiagit.github.io/converter/build/index.html",
     "short_name": "Converter",

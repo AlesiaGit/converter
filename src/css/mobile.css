@@ -18,6 +18,8 @@ body {
 	width: 100%;
 	background-color: #ffffff;
 	border: 0;
+	position: relative;
+    overflow: hidden;
 }
 
 
@@ -114,7 +116,10 @@ body {
 .top-wrapper__results-wrapper {
 	width: 70%;
 	text-align: right;
-	padding-right: 8.2vw;
+}
+
+.results-wrapper-time {
+	width: 100%;
 }
 
 .switch-wrapper__switch {
@@ -161,6 +166,11 @@ body {
 	border-bottom-color: #222222;
 	padding-bottom: 2.7vw;
 	position: relative;
+	padding-right: 8.2vw;
+}
+
+.results-wrapper__intput-field {
+	padding-right: 8.2vw;
 }
 
 .input-field__input-data {
@@ -397,7 +407,6 @@ body {
     font-family: "Mi Lanting", arial;
     font-size: 9vw;
     color: #ff9800;
-    padding-right: 8.2vw;
 }
 
 .time-output-data {

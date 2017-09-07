@@ -9,7 +9,7 @@ class TimeConverter {
 		this.timeScreen.className = 'widget__converter converter';
 		this.timeScreen.innerHTML='\
 		<div class="converter__top-wrapper">\
-		<div class="top-wrapper__results-wrapper results-wrapper js-results">\
+		<div class="top-wrapper__results-wrapper results-wrapper results-wrapper-time js-results">\
 		<div class="results-wrapper__input-field input-field js-input-field" id="input">\
 		<input class="input-field__input-data data js-input-data time-input-data" type="text" value="00-00-00 00:00" readonly>\
 		<div class="visible-input-data">00-00-00 00-00</div>\
@@ -211,6 +211,10 @@ class TimeConverter {
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
 
+		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
+			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
+		}
+
 		if (currentPos == 3 || currentPos == 6 || currentPos == 9 || currentPos == 12) {
 			currentPos -= 2;
 		} else if (currentPos == 0) {
@@ -226,6 +230,11 @@ class TimeConverter {
 
 
 	clickRightRuler() {
+
+		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
+			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
+		}
+
 		var inputDiv = document.getElementsByClassName('js-input-data')[0];
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
@@ -251,6 +260,10 @@ class TimeConverter {
 		var outputDescr = document.getElementsByClassName('js-output-descr')[0];
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
+
+		if (document.getElementsByClassName('js-input-data')[0].value.length > 14) {
+			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
+		}
 
 		var target = event.target;
 		var cellToNum = parseInt(target.innerHTML);
