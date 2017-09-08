@@ -1,4 +1,4 @@
-//screen.orientation.lock('portrait');
+screen.orientation.lock('portrait');
 
 var widget = document.getElementsByClassName('widget')[0];
 var currentPos;

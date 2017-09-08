@@ -162,7 +162,7 @@ class TimeConverter {
 
 		var minutes = time.getMinutes();
 		if (minutes < 10) {
-    		minutes = '0' + month;
+    		minutes = '0' + minutes;
     	} 
 
 		var timezoneCurrentTime = date + '-' + month + '-' + year + ' ' + hours + ':' + minutes;
