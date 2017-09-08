@@ -71,12 +71,7 @@ class TimeConverter {
 			document.getElementsByClassName('js-output-data')[0].innerHTML = '00-00-00 00:00';
 		}
 
-		var inputDiv = document.getElementsByClassName('js-input-data')[0];
-		
-		if (inputDiv.value.length > 14) {
-			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
-		}
-		
+			
 		document.getElementById('left').addEventListener('click', this.clickLeftRuler);
 		document.getElementById('right').addEventListener('click', this.clickRightRuler);
 		document.getElementById('input').addEventListener('click', this.changeInputLocation);
@@ -212,10 +207,7 @@ class TimeConverter {
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
 
-		if (inputDiv.value.length > 14) {
-			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
-		}
-
+		
 		if (currentPos == 3 || currentPos == 6 || currentPos == 9 || currentPos == 12) {
 			currentPos -= 2;
 		} else if (currentPos == 0) {
@@ -235,10 +227,7 @@ class TimeConverter {
 		var fake = document.getElementsByClassName('visible-input-data')[0];
 		var str = inputDiv.value;
 
-		if (inputDiv.value.length > 14) {
-			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
-		}
-
+	
 		if (currentPos == 1 || currentPos == 4 || currentPos == 7 || currentPos == 10) {
 			currentPos += 2;
 		} else if (currentPos == inputDiv.value.length - 1) {
@@ -285,9 +274,6 @@ class TimeConverter {
 		        }
 		       
 		        str = inputDiv.value;
-		        if (inputDiv.value.length > 14) {
-					document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
-				}
 		       
 		        var fakePos = currentPos;
 		        if (fakePos == 2 || currentPos == 5 || currentPos == 8 || currentPos == 11) {
