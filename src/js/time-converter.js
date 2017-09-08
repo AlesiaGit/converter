@@ -72,6 +72,7 @@ class TimeConverter {
 		}
 
 		var inputDiv = document.getElementsByClassName('js-input-data')[0];
+		
 		if (inputDiv.value.length > 14) {
 			document.getElementsByClassName('js-input-data')[0].value = inputDiv.value.substring(0, 14);
 		}

@@ -62,11 +62,11 @@ class CurrencyConverter {
 		document.getElementsByClassName('js-cell-back')[0].style.backgroundColor = '#b2dfdb';
 		document.getElementsByClassName('js-switch')[0].style.backgroundColor = '#b2dfdb';
 		document.getElementsByClassName('js-input-field')[0].style.borderBottomColor = '#b2dfdb';
-		//document.getElementsByClassName('js-input-descr')[0].innerHTML = 'United States Dollar';
-		//document.getElementsByClassName('js-input-units')[0].innerHTML = 'USD';
 		
-
-		this.getCurrencyList();
+		if (currencies.length == 0) {
+			this.getCurrencyList();
+		}
+		
 
 		if (inputCurrency.length == 0) {
 			inputCurrency = ['USD', 'United States Dollar'];

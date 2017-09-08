@@ -16,43 +16,21 @@ class ShowSearchScreen {
 
 		var zones = JSON.parse(localStorage.getItem('zones')) || [];
 
-		for (var i = 0; i < zones.length; i++) {
-			var locationItem = document.createElement('div');
-			locationItem.className = 'locations__item item';
-			locationItem.innerHTML = '\
-			<div class="item__loc-name"></div>\
-			<div class="item__loc-zone"></div>\
-			<div class="item__loc-gmt"></div>';
+		if (zones.length == 0) {
+			this.getTimezones();
+		} else {
+			for (var i = 0; i < zones.length; i++) {
+				var locationItem = document.createElement('div');
+				locationItem.className = 'locations__item item';
+				locationItem.innerHTML = '\
+				<div class="item__loc-name">' + zones[i]['countryName'] + '</div>\
+				<div class="item__loc-zone">' + zones[i]['zoneName'] + '</div>\
+				<div class="item__loc-gmt">GMT' + offsetAbbreviation(zones[i].gmtOffset/60) + '</div>';
 
-			document.getElementById('locations').appendChild(locationItem);
-
-			document.getElementsByClassName('item__loc-name')[i].innerHTML =  zones[i]['countryName'];
-			document.getElementsByClassName('item__loc-zone')[i].innerHTML = zones[i]['zoneName'];
-
-			var hours = Math.floor(zones[i].gmtOffset/3600);
-			var minutes = 60*(zones[i].gmtOffset/3600 - hours);
-
-			if (minutes == 0) {
-				minutes = '00';
-			} else if (minutes < 10) {
-				minutes = '0' + minutes;
+				document.getElementById('locations').appendChild(locationItem);
 			}
-
-			if (hours >= 0 && hours < 10) {
-				hours = '+0' + hours;
-			} else if (hours < 0 && hours > -10) {
-				hours = '-0' + Math.abs(hours);
-			} else if (hours >= 10) {
-				hours = '+' + hours;
-			}
-
-			var gmt = hours + ':' + minutes;
-			document.getElementsByClassName('item__loc-gmt')[i].innerHTML = 'GMT' + gmt;
-
 		}
 		
-		this.getTimezones();
-
 		document.getElementsByClassName('close-btn')[0].addEventListener('click', this.hideSearchScreen);
 		document.getElementById('locations').addEventListener('click', this.requestTime);
 
@@ -77,48 +55,19 @@ class ShowSearchScreen {
 		});
 
 		for (var i = 0; i < anotherZones.length; i++) {
-
 			var locationItem = document.createElement('div');
 			locationItem.className = 'locations__item item';
 			locationItem.innerHTML = '\
-			<div class="item__loc-name"></div>\
-			<div class="item__loc-zone"></div>\
-			<div class="item__loc-gmt"></div>';
+			<div class="item__loc-name">' + anotherZones[i]['countryName'] + '</div>\
+			<div class="item__loc-zone">' + anotherZones[i]['zoneName'] + '</div>\
+			<div class="item__loc-gmt">GMT' + offsetAbbreviation(anotherZones[i].gmtOffset/60) + '</div>';
 
 			document.getElementById('locations').appendChild(locationItem);
-
-			document.getElementsByClassName('item__loc-name')[i].innerHTML =  anotherZones[i]['countryName'];
-			document.getElementsByClassName('item__loc-zone')[i].innerHTML = anotherZones[i]['zoneName'];
-
-			
-			var hours = Math.floor(anotherZones[i].gmtOffset/3600);
-			var minutes = 60*(anotherZones[i].gmtOffset/3600 - hours);
-
-			if (minutes == 0) {
-				minutes = '00';
-			} else if (minutes < 10) {
-				minutes = '0' + minutes;
-			}
-
-			if (hours >= 0 && hours < 10) {
-				hours = '+0' + hours;
-			} else if (hours < 0 && hours > -10) {
-				hours = '-0' + Math.abs(hours);
-			} else if (hours >= 10) {
-				hours = '+' + hours;
-			}
-
-			var gmt = hours + ':' + minutes;
-
-			document.getElementsByClassName('item__loc-gmt')[i].innerHTML = 'GMT' + gmt;
-
 		}
-
 
 		document.getElementById('locations').addEventListener('click', this.requestTime);
 
 	}
-
 
 
 	requestTime() {
@@ -161,48 +110,22 @@ class ShowSearchScreen {
 
 
 	getTimezones() {
-
 		return fetch('https://cors-anywhere.herokuapp.com/https://api.timezonedb.com/v2/list-time-zone?key=AYFND6YNSLQO&format=json').then(function (req) {
 			return req.json();
 		}).then(function (data) {
-
 			zones = data.zones;
+			localStorage.setItem('zones', JSON.stringify(zones));
 
-			for (var i = 0; i < data.zones.length; i++) {
+
+			for (var i = 0; i < zones.length; i++) {
 				var locationItem = document.createElement('div');
 				locationItem.className = 'locations__item item';
 				locationItem.innerHTML = '\
-				<div class="item__loc-name"></div>\
-				<div class="item__loc-zone"></div>\
-				<div class="item__loc-gmt"></div>';
+				<div class="item__loc-name">' + zones[i]['countryName'] + '</div>\
+				<div class="item__loc-zone">' + zones[i]['zoneName'] + '</div>\
+				<div class="item__loc-gmt">GMT' + offsetAbbreviation(zones[i].gmtOffset/60) + '</div>';
 
 				document.getElementById('locations').appendChild(locationItem);
-
-				document.getElementsByClassName('item__loc-name')[i].innerHTML =  data.zones[i].countryName;
-				document.getElementsByClassName('item__loc-zone')[i].innerHTML = data.zones[i].zoneName;
-
-				var hours = Math.floor(data.zones[i].gmtOffset/3600);
-				
-				var minutes = 60*(data.zones[i].gmtOffset/3600 - hours);
-				if (minutes == 0) {
-					minutes = '00';
-				} else if (minutes < 10) {
-					minutes = '0' + minutes;
-				}
-
-				if (hours >= 0 && hours < 10) {
-					hours = '+0' + hours;
-				} else if (hours < 0 && hours > -10) {
-					hours = '-0' + Math.abs(hours);
-				} else if (hours >= 10) {
-					hours = '+' + hours;
-				}
-				
-				var gmt = hours + ':' + minutes;
-				document.getElementsByClassName('item__loc-gmt')[i].innerHTML = 'GMT' + gmt;
-
-				localStorage.setItem('zones', JSON.stringify(zones));
-
 			}
 		});
 	}

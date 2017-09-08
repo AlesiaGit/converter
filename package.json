@@ -1,0 +1,19 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "converter pwa",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlesiaGit/converter.git"
+  },
+  "author": "Alesia_S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlesiaGit/converter/issues"
+  },
+  "homepage": "https://github.com/AlesiaGit/converter#readme"
+}
