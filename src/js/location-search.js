@@ -86,16 +86,14 @@ class ShowSearchScreen {
 				if (selectedLoc == 'input') {
 					inputData = [descr, offset, zone];
 					localStorage.setItem('input', JSON.stringify(inputData));
-					new TimeConverter(inputData);
-
 				} 
 
 				if(selectedLoc == 'output') {
 					outputData = [descr, offset, zone];
 					localStorage.setItem('output', JSON.stringify(outputData));
-
-					new TimeConverter;
 				}
+
+				new TimeConverter;
 
 				return;
 			} else {
@@ -124,7 +122,6 @@ class ShowSearchScreen {
 				<div class="item__loc-name">' + zones[i]['countryName'] + '</div>\
 				<div class="item__loc-zone">' + zones[i]['zoneName'] + '</div>\
 				<div class="item__loc-gmt">GMT' + offsetAbbreviation(zones[i].gmtOffset/60) + '</div>';
-
 				document.getElementById('locations').appendChild(locationItem);
 			}
 		});
