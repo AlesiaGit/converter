@@ -53,7 +53,7 @@ function showMainScreen() {
 	<div class="title-wrapper__title title-wrapper__title-bottom">Converter</div>\
 	</div>\
 	<div class="main-screen__menu-wrapper menu-wrapper">\
-	<a href="#speed" class="menu-wrapper__menu menu-wrapper__menu-speed">Speed</a>\
+	<a href="#distance" class="menu-wrapper__menu menu-wrapper__menu-distance">Distance</a>\
 	<a href="#time" class="menu-wrapper__menu menu-wrapper__menu-time">TimeZone</a>\
 	<a href="#currency" class="menu-wrapper__menu menu-wrapper__menu-currency">Currency</a>\
 	<a href="#temp" class="menu-wrapper__menu menu-wrapper__menu-temp">Temperature</a>\

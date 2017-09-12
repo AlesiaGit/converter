@@ -1,4 +1,4 @@
-class SpeedConverter {
+class DistanceConverter {
 	
 	constructor() {
 		var widget = document.getElementsByClassName('widget')[0];
@@ -52,14 +52,14 @@ class SpeedConverter {
 
 		widget.appendChild(this.converterScreen);
 
-		this.fillSpeedData();
+		this.fillDistanceData();
 
 		document.getElementsByClassName('grid')[0].addEventListener('click', this.clickOnCell);
 		document.getElementsByClassName('js-switch')[0].addEventListener('change', this.switchData);
 
 	}
 
-	fillSpeedData() {
+	fillDistanceData() {
 		document.getElementsByClassName('js-input-data')[0].style.color = '#bdbdbd';
 		document.getElementsByClassName('js-cell-clear')[0].style.color = '#bdbdbd';
 		document.getElementsByClassName('js-cell-back')[0].style.backgroundColor = '#bdbdbd';
@@ -97,6 +97,7 @@ class SpeedConverter {
 			document.getElementsByClassName('js-input-units')[0].innerHTML = 'KM';
 			document.getElementsByClassName('js-output-units')[0].innerHTML = 'M';
 			outputDiv.innerHTML = (parseInt(inputDiv.value)/1.609344).toFixed(decimal);
+			
 		}
 	}
 
@@ -112,7 +113,7 @@ class SpeedConverter {
 		if (event.target.innerHTML == 'C') {
 			inputDiv.value = '0';
 
-		} else if (event.target.className == '' && data.length <= 1) {
+		} else if (event.target.innerHTML == '' && data.length <= 1) {
 			inputDiv.value = '0';
 
 		} else if (event.target.innerHTML == '') {
@@ -121,10 +122,10 @@ class SpeedConverter {
 		} else if (event.target.innerHTML == '.' && index >= 0) {
 			inputDiv.value = inputDiv.value;
 
-		} else if (event.target.innerHTML == '.' && inputDiv.value == 0) {
+		} else if (event.target.innerHTML == '.' && inputDiv.value == '0') {
 			inputDiv.value = '0.';
 
-		} else if (inputDiv.value == '0') {
+		} else if (event.target.innerHTML != '' && inputDiv.value == '0') {
 			inputDiv.value = event.target.innerHTML;
 
 		} else {

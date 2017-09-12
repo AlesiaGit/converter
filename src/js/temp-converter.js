@@ -112,7 +112,7 @@ class TempConverter {
 		if (event.target.innerHTML == 'C') {
 			inputDiv.value = '0';
 
-		} else if (event.target.className == '' && data.length <= 1) {
+		} else if (event.target.innerHTML == '' && data.length <= 1) {
 			inputDiv.value = '0';
 
 		} else if (event.target.innerHTML == '') {

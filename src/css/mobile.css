@@ -19,7 +19,7 @@ body {
 	background-color: #ffffff;
 	border: 0;
 	position: relative;
-    overflow-y: scroll;
+    //overflow-y: scroll;
 }
 
 
@@ -70,7 +70,7 @@ body {
     text-indent: 12.3vw;
 }
 
-.menu-wrapper__menu-speed {
+.menu-wrapper__menu-distance {
 	background-color: #bdbdbd;
 }
 
@@ -169,7 +169,7 @@ body {
 	padding-right: 8.2vw;
 }
 
-.results-wrapper__intput-field {
+.results-wrapper__output-field {
 	padding-right: 8.2vw;
 }
 

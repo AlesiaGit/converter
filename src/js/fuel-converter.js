@@ -144,9 +144,9 @@ class FuelConverter {
 		}
 
 
-		if (checkedDefault == true && inputDiv.value != 0) {
+		if (checkedDefault == true && inputDiv.value != '0') {
 			outputDiv.innerHTML = (236/parseFloat(inputDiv.value)).toFixed(decimal);
-		} else if (checkedDefault == true && inputDiv.value == 0) {
+		} else if (checkedDefault == true && inputDiv.value == '0') {
 			outputDiv.innerHTML = 0;
 		} else {
 			outputDiv.innerHTML = (parseInt(inputDiv.value)*236).toFixed(decimal);
