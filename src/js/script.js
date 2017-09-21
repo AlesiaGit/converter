@@ -33,6 +33,10 @@ function offsetAbbreviation(data) {
 		hrs = '-0' + Math.abs(hrs);
 	} else if (hrs < 10 && hrs >= 0) {
 		hrs = '+0' + hrs;
+	} else if (hrs >= 10) {
+		hrs = '+' + hrs;
+	} else if (hrs <= -10) {
+		hrs = '-' + hrs;
 	}
 	
 	if (min < 10) {

@@ -211,7 +211,7 @@ body {
 .grid__table {
 	border-collapse: collapse;
 	width: 100%;
-	min-height: 100%;
+	min-height: 101%;
 	border-left-style: hidden;
     border-bottom-style: hidden;
     border-right-style: hidden;
